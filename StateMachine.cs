@@ -44,7 +44,7 @@ namespace PiMachine
         {
             foreach (var permit in Permits)
             {
-                if (permit.Original.Equals(CurrentState) && permit.Trigger.Equals(trigger))
+                if ((permit.FromAny || permit.Original.Equals(CurrentState)) && permit.Trigger.Equals(trigger))
                 {
                     //Check if we are allowed to change state
                     bool? cont = permit.Execute?.Invoke();
